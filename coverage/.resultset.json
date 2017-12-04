@@ -1,0 +1,21 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/zacharypalmquist/turing/1module/projects/date_night/lib/node.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        8,
+        8,
+        8,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1512424025
+  }
+}

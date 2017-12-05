@@ -9,6 +9,7 @@ class BinarySearchTree
     new_node = Node.new(score, title)
     if @root.nil?
        @root = new_node
+       return new_node.depth
     else
       new_node.depth = 1
       current_node = @root

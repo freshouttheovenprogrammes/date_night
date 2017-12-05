@@ -9,56 +9,57 @@ class BinarySearchTree
     new_node = Node.new(score, title)
     if @root.nil?
        @root = new_node
-       return new_node.depth
+       return 0
     else
-      new_node.depth = 1
       current_node = @root
       post_insert(new_node, current_node)
     end
   end
 
-  def post_insert(new_node, current_node)
+  def post_insert(new_node, current_node, depth = 0)
     if new_node.score > current_node.score
-      right_node_check(new_node, current_node)
+      depth += 1
+      right_node_check(new_node, current_node, depth)
     else
-      left_node_check(new_node, current_node)
+      depth += 1
+      left_node_check(new_node, current_node, depth)
     end
   end
 
-  def left_node_check(new_node, current_node)
+  def left_node_check(new_node, current_node, depth)
     if current_node.left_node.nil?
-       left_insert(new_node, current_node)
+       left_insert(new_node, current_node, depth)
     else
       updated_node = left_movement(new_node, current_node)
-      post_insert(new_node, updated_node)
+      post_insert(new_node, updated_node, depth)
     end
   end
 
-  def right_node_check(new_node, current_node)
+  def right_node_check(new_node, current_node, depth)
     if current_node.right_node.nil?
-       right_insert(new_node, current_node)
+       right_insert(new_node, current_node, depth)
     else
        updated_node = right_movement(new_node, current_node)
-       post_insert(new_node, updated_node)
+       post_insert(new_node, updated_node, depth)
     end
   end
 
   def right_movement(new_node, current_node)
-    new_node.depth += 1
     return current_node.right_node
   end
 
-  def right_insert(new_node, current_node)
+  def right_insert(new_node, current_node, depth)
     current_node.right_node = new_node
+    return depth
   end
 
   def left_movement(new_node, current_node)
-    new_node.depth += 1
     return current_node.left_node
   end
 
-  def left_insert(new_node, current_node)
+  def left_insert(new_node, current_node, depth)
     current_node.left_node = new_node
+    return depth
   end
 
   def include?(score)

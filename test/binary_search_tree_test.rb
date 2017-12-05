@@ -24,22 +24,24 @@ class BinarySearchTreeTest < Minitest::Test
     assert_nil tree.root.left_node
     assert_nil tree.root.right_node
     assert_equal 61, tree.root.score
-    assert_equal 0, tree.root.depth
   end
 
   def test_that_include_returns_the_depth_of_node_inserted
     tree = BinarySearchTree.new
     result = tree.insert(61, "Bill & Ted's Excellent Adventure")
     result2 = tree.insert(99, "Surfer Nazis Must Die")
-    result3 = tree.insert(55, "Bill & Ted's Excellent Adventure")
+    result3 = tree.insert(55, "Bill & Ted's Excellent Adventure 2")
+    result4 = tree.insert(60, "Buffy The Vampire Slayer")
+    result5 = tree.insert(54, "Heathers")
 
     assert_equal 0, result
-    assert_equal 0, result
-    assert_equal 0, result
+    assert_equal 1, result2
+    assert_equal 1, result3
+    assert_equal 2, result4
+    assert_equal 2, result5
   end
 
   def test_that_nodes_can_be_inserted_one_level_deep
-    skip
     tree = BinarySearchTree.new
     pulp_fiction = tree.insert(78, "Pulp Fiction")
     green_mile = tree.insert(68, "The Green Mile")
@@ -52,7 +54,6 @@ class BinarySearchTreeTest < Minitest::Test
   end
 
   def test_that_nodes_can_be_inserted_multiple_levels_deep
-    skip
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")
     first_left_node = tree.insert(68, "The Green Mile")
@@ -64,24 +65,7 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal toaster_3, first_left_node.left_node
   end
 
-  def test_that_insert_updates_depth
-    skip
-    tree = BinarySearchTree.new
-    root = tree.insert(78, "Pulp Fiction")
-    first_left_node = tree.insert(68, "The Green Mile")
-    first_right_node = tree.insert(88, "The Brave Little Toaster")
-    toaster_2 = tree.insert(89, "The Brave Little Toaster2")
-    toaster_3 = tree.insert(67, "The Brave Little Toaster3")
-
-    assert_equal 0, root.depth
-    assert_equal 1, first_left_node.depth
-    assert_equal 1, first_right_node.depth
-    assert_equal 2, toaster_2.depth
-    assert_equal 2, toaster_3.depth
-  end
-
-  def test_include_method_finds_root_score
-    skip
+  def test_include_method_finds_node_score
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")
 

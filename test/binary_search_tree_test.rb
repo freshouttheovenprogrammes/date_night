@@ -23,14 +23,15 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal "Bill & Ted's Excellent Adventure", tree.root.title
     assert_equal 61, tree.root.score
     assert Node, tree.root
+    require "pry"; binding.pry
     assert_equal 0, tree.root.depth
   end
 
   def test_that_when_insert_method_called_nodes_go_left_and_right
+    skip
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")
     tree.insert(68, "The Green Mile")
-    # require "pry"; binding.pry
     tree.insert(88, "The Brave Little Toaster")
 
     assert_equal "Pulp Fiction", tree.root.title

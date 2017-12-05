@@ -25,7 +25,7 @@ class BinarySearchTree
   end
 
   def left_node_check(new_node, current_node)
-    if current_node.left_next_node.nil?
+    if current_node.left_node.nil?
        left_insert(new_node, current_node)
     else
       updated_node = left_movement(new_node, current_node)
@@ -34,8 +34,8 @@ class BinarySearchTree
   end
 
   def right_node_check(new_node, current_node)
-    if current_node.right_next_node.nil?
-      right_insert(new_node, current_node)
+    if current_node.right_node.nil?
+       right_insert(new_node, current_node)
     else
        updated_node = right_movement(new_node, current_node)
        post_insert(new_node, updated_node)
@@ -43,21 +43,30 @@ class BinarySearchTree
   end
 
   def right_movement(new_node, current_node)
-   new_node.depth += 1
-   return current_node.right_next_node
+    new_node.depth += 1
+    return current_node.right_node
   end
 
   def right_insert(new_node, current_node)
-    current_node.right_next_node = new_node
+    current_node.right_node = new_node
   end
 
   def left_movement(new_node, current_node)
     new_node.depth += 1
-    return current_node.left_next_node
+    return current_node.left_node
   end
 
   def left_insert(new_node, current_node)
-    current_node.left_next_node = new_node
+    current_node.left_node = new_node
   end
+
+  def include?(score)
+    if @root.score == score
+      true
+    else
+      false
+    end
+  end
+
 end
   # TODO make hash converter so like Hash.new(score, title)

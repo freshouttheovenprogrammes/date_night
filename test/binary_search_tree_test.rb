@@ -28,6 +28,7 @@ class BinarySearchTreeTest < Minitest::Test
   end
 
   def test_that_insert_method_returns_depth_of_a_movie
+    skip
     tree = BinarySearchTree.new
     bill_and_ted = tree.insert(61, "Bill and Ted's Excellent Adventure")
 
@@ -71,6 +72,25 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 1, first_right_node.depth
     assert_equal 2, toaster_2.depth
     assert_equal 2, toaster_3.depth
+  end
+
+  def test_include_method_finds_root_score
+    tree = BinarySearchTree.new
+    tree.insert(78, "Pulp Fiction")
+
+    assert tree.include?(78)
+    refute tree.include?(44)
+  end
+
+  def test_include_method_finds_depth_of_one_movies_score
+    tree = BinarySearchTree.new
+    tree.insert(78, "Pulp Fiction")
+    tree.insert(44, "Where The Wild Things Are")
+    tree.insert(99, "Surfer Nazis Must Die")
+
+    assert tree.include?(78)
+    assert tree.include?(44)
+    assert tree.include?(99)
   end
 
 end

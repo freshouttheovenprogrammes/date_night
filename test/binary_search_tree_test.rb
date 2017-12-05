@@ -16,67 +16,54 @@ class BinarySearchTreeTest < Minitest::Test
     assert_nil tree.root
   end
 
-  def test_that_when_insert_method_called_that_first_node_is_root
+  def test_that_insert_includes_node_updated_attributes_and_left_right_nodes_nil
     tree = BinarySearchTree.new
     tree.insert(61, "Bill & Ted's Excellent Adventure")
-    # require "pry"; binding.pry
 
     assert_equal "Bill & Ted's Excellent Adventure", tree.root.title
+    assert_nil tree.root.left_next_node
+    assert_nil tree.root.right_next_node
     assert_equal 61, tree.root.score
-    assert Node, tree.root
     assert_equal 0, tree.root.depth
   end
 
-  def test_that_when_insert_method_called_nodes_go_left_and_right
-
+  def test_that_nodes_can_be_inserted_one_level_deep
     tree = BinarySearchTree.new
-    tree.insert(78, "Pulp Fiction")
-    tree.insert(68, "The Green Mile")
-    tree.insert(88, "The Brave Little Toaster")
+    pulp_fiction = tree.insert(78, "Pulp Fiction")
+    green_mile = tree.insert(68, "The Green Mile")
+    brave_toaster = tree.insert(88, "The Brave Little Toaster")
+    root = tree.root
 
-    assert_equal "Pulp Fiction", tree.root.title
-    assert_equal 78, tree.root.score
-    assert Node, tree.root
-    assert_equal 0, tree.root.depth
-
-    assert_equal "The Brave Little Toaster", tree.root.right_next_node.title
-    assert_equal 88, tree.root.right_next_node.score
-    assert_equal 1, tree.root.right_next_node.depth
-
-    assert_equal "The Green Mile", tree.root.left_next_node.title
-    assert_equal 68, tree.root.left_next_node.score
-    assert_equal 1, tree.root.left_next_node.depth
+    assert_equal pulp_fiction, root
+    assert_equal brave_toaster, root.right_next_node
+    assert_equal green_mile, root.left_next_node
   end
 
-  def test_that_when_insert_method_called_nodes_go_left_and_right
-
+  def test_that_nodes_can_be_inserted_multiple_levels_deep
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")
-    tree.insert(68, "The Green Mile")
-    tree.insert(88, "The Brave Little Toaster")
-    tree.insert(89, "The Brave Little Toaster2")
-    tree.insert(67, "The Brave Little Toaster3")
+    first_left_node = tree.insert(68, "The Green Mile")
+    first_right_node = tree.insert(88, "The Brave Little Toaster")
+    toaster_2 = tree.insert(89, "The Brave Little Toaster2")
+    toaster_3 = tree.insert(67, "The Brave Little Toaster3")
 
-    assert_equal "Pulp Fiction", tree.root.title
-    assert_equal 78, tree.root.score
-    assert Node, tree.root
-    assert_equal 0, tree.root.depth
+    assert_equal toaster_2, first_right_node.right_next_node
+    assert_equal toaster_3, first_left_node.left_next_node
+  end
 
-    assert_equal "The Brave Little Toaster", tree.root.right_next_node.title
-    assert_equal 88, tree.root.right_next_node.score
-    assert_equal 1, tree.root.right_next_node.depth
+  def test_that_insert_updates_depth
+    tree = BinarySearchTree.new
+    root = tree.insert(78, "Pulp Fiction")
+    first_left_node = tree.insert(68, "The Green Mile")
+    first_right_node = tree.insert(88, "The Brave Little Toaster")
+    toaster_2 = tree.insert(89, "The Brave Little Toaster2")
+    toaster_3 = tree.insert(67, "The Brave Little Toaster3")
 
-    assert_equal "The Green Mile", tree.root.left_next_node.title
-    assert_equal 68, tree.root.left_next_node.score
-    assert_equal 1, tree.root.left_next_node.depth
-
-    assert_equal "The Brave Little Toaster2", tree.root.right_next_node.right_next_node.title
-    assert_equal 89, tree.root.right_next_node.right_next_node.score
-    assert_equal 2, tree.root.right_next_node.right_next_node.depth
-
-    assert_equal "The Brave Little Toaster3", tree.root.left_next_node.left_next_node.title
-    assert_equal 67, tree.root.left_next_node.left_next_node.score
-    assert_equal 2, tree.root.left_next_node.left_next_node.depth
+    assert_equal 0, root.depth
+    assert_equal 1, first_left_node.depth
+    assert_equal 1, first_right_node.depth
+    assert_equal 2, toaster_2.depth
+    assert_equal 2, toaster_3.depth
   end
 
 end

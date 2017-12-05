@@ -11,7 +11,6 @@ class NodeTest < Minitest::Test
 
   def test_it_can_retrieve_title
     node = Node.new(22, "titlestuff")
-
     assert_equal "titlestuff", node.title
     assert_equal 22, node.score
   end

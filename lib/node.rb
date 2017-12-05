@@ -14,6 +14,3 @@ class Node
   end
 
 end
-
-# Was getting 2 given 0 expected on Node.class when depth was reader not
-# accessor but it works fine when it is accessor????! what gives?

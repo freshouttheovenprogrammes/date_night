@@ -8,8 +8,8 @@ class Node
   def initialize(score, title)
     @title           = title
     @score           = score
-    @left_node  = nil
-    @right_node = nil
+    @left_node       = nil
+    @right_node      = nil
     @depth           = 0
   end
 

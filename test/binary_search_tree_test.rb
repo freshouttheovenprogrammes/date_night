@@ -30,7 +30,11 @@ class BinarySearchTreeTest < Minitest::Test
   def test_that_include_returns_the_depth_of_node_inserted
     tree = BinarySearchTree.new
     result = tree.insert(61, "Bill & Ted's Excellent Adventure")
+    result2 = tree.insert(99, "Surfer Nazis Must Die")
+    result3 = tree.insert(55, "Bill & Ted's Excellent Adventure")
 
+    assert_equal 0, result
+    assert_equal 0, result
     assert_equal 0, result
   end
 

@@ -1,5 +1,5 @@
 class BinarySearchTree
-  attr_reader :root
+  attr_accessor :root
 
   def initialize
     @root = nil
@@ -7,7 +7,7 @@ class BinarySearchTree
 
   def insert(score, title)
     current = @root
-    if root.nil?
+    if @root.nil?
       @root = Node.new(score, title)
     elsif current.score > root.score
       current.right_insert(score, title)
@@ -18,8 +18,8 @@ class BinarySearchTree
 
   def right_insert(score, title, current = @root)
     depth = 0
-      if root.score > current.score
-        current = root.left_next_node
+      if root.score < current.score
+        current = root.right_next_node
         depth += 1
       else
         depth = 0

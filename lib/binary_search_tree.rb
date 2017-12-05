@@ -61,12 +61,3 @@ class BinarySearchTree
   end
 end
   # TODO make hash converter so like Hash.new(score, title)
-
-  #       ≈
-  #       78
-  #      /  \
-  #    68    88
-  #   /        \
-  # 66         98
-  #   \
-  #    67

@@ -27,6 +27,13 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 0, tree.root.depth
   end
 
+  def test_that_insert_method_returns_depth_of_a_movie
+    tree = BinarySearchTree.new
+    bill_and_ted = tree.insert(61, "Bill and Ted's Excellent Adventure")
+
+    assert_equal 0, bill_and_ted
+  end
+
   def test_that_nodes_can_be_inserted_one_level_deep
     tree = BinarySearchTree.new
     pulp_fiction = tree.insert(78, "Pulp Fiction")

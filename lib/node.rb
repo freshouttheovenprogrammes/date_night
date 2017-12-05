@@ -1,9 +1,9 @@
 class Node
   attr_reader   :score,
-                :title
+                :title,
+                :depth
   attr_accessor :left_next_node,
                 :right_next_node,
-                :depth
 
   def initialize(score, title)
     @title           = title

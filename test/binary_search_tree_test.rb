@@ -19,7 +19,6 @@ class BinarySearchTreeTest < Minitest::Test
   def test_that_when_insert_method_called_that_first_node_is_root
     tree = BinarySearchTree.new
     tree.insert(61, "Bill & Ted's Excellent Adventure")
-    require "pry"; binding.pry
 
     assert_equal "Bill & Ted's Excellent Adventure", tree.root.title
     assert_equal 61, tree.root.score
@@ -31,6 +30,7 @@ class BinarySearchTreeTest < Minitest::Test
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")
     tree.insert(68, "The Green Mile")
+    require "pry"; binding.pry
     tree.insert(88, "The Brave Little Toaster")
 
     assert_equal "Pulp Fiction", tree.root.title

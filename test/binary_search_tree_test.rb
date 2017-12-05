@@ -21,18 +21,10 @@ class BinarySearchTreeTest < Minitest::Test
     tree.insert(61, "Bill & Ted's Excellent Adventure")
 
     assert_equal "Bill & Ted's Excellent Adventure", tree.root.title
-    assert_nil tree.root.left_next_node
-    assert_nil tree.root.right_next_node
+    assert_nil tree.root.left_node
+    assert_nil tree.root.right_node
     assert_equal 61, tree.root.score
     assert_equal 0, tree.root.depth
-  end
-
-  def test_that_insert_method_returns_depth_of_a_movie
-    skip
-    tree = BinarySearchTree.new
-    bill_and_ted = tree.insert(61, "Bill and Ted's Excellent Adventure")
-
-    assert_equal 0, bill_and_ted
   end
 
   def test_that_nodes_can_be_inserted_one_level_deep
@@ -43,8 +35,8 @@ class BinarySearchTreeTest < Minitest::Test
     root = tree.root
 
     assert_equal pulp_fiction, root
-    assert_equal brave_toaster, root.right_next_node
-    assert_equal green_mile, root.left_next_node
+    assert_equal brave_toaster, root.right_node
+    assert_equal green_mile, root.left_node
   end
 
   def test_that_nodes_can_be_inserted_multiple_levels_deep
@@ -55,8 +47,8 @@ class BinarySearchTreeTest < Minitest::Test
     toaster_2 = tree.insert(89, "The Brave Little Toaster2")
     toaster_3 = tree.insert(67, "The Brave Little Toaster3")
 
-    assert_equal toaster_2, first_right_node.right_next_node
-    assert_equal toaster_3, first_left_node.left_next_node
+    assert_equal toaster_2, first_right_node.right_node
+    assert_equal toaster_3, first_left_node.left_node
   end
 
   def test_that_insert_updates_depth
@@ -81,16 +73,4 @@ class BinarySearchTreeTest < Minitest::Test
     assert tree.include?(78)
     refute tree.include?(44)
   end
-
-  def test_include_method_finds_depth_of_one_movies_score
-    tree = BinarySearchTree.new
-    tree.insert(78, "Pulp Fiction")
-    tree.insert(44, "Where The Wild Things Are")
-    tree.insert(99, "Surfer Nazis Must Die")
-
-    assert tree.include?(78)
-    assert tree.include?(44)
-    assert tree.include?(99)
-  end
-
 end

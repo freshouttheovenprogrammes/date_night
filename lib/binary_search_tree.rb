@@ -62,11 +62,35 @@ class BinarySearchTree
     return depth
   end
 
-  def include?(score)
-    if @root.score == score
-      true
-    else
+  def include?(score, current_node = @root)
+    if current_node.nil?
       false
+    elsif current_node.score == score
+      true
+    elsif current_node.score > score
+      current_node = current_node.left_node
+      include?(score, current_node)
+    elsif current_node.score < score
+      current_node = current_node.right_node
+      include?(score, current_node)
+    end
+  end
+
+  def max(current_node = @root)
+    if current_node.right_node.nil?
+      {current_node.title => current_node.score}
+    else
+      current_node = current_node.right_node
+      max(current_node)
+    end
+  end
+
+  def min(current_node = @root)
+    if current_node.left_node.nil?
+      {current_node.title => current_node.score}
+    else
+      current_node = current_node.left_node
+      min(current_node)
     end
   end
 

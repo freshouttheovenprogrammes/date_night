@@ -68,9 +68,13 @@ class BinarySearchTreeTest < Minitest::Test
   def test_include_method_finds_node_score
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")
+    tree.insert(22, "Sick Nasty")
+    tree.insert(99, "Chic: The Movie")
 
     assert tree.include?(78)
     refute tree.include?(44)
+    assert tree.include?(22)
+    assert tree.include?(99)
   end
 
   def test_depth_of_returns_depth

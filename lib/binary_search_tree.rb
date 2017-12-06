@@ -82,12 +82,11 @@ class BinarySearchTree
     elsif current_node.score == score
       return depth
     elsif current_node.score > score
-      require "pry"; binding.pry
-      current_node = current_node.right_node
+      current_node = current_node.left_node
       depth += 1
       depth_of?(score, current_node, depth)
     elsif current_node.score < score
-      current_node = current_node.left_node
+      current_node = current_node.right_node
       depth += 1
       depth_of?(score, current_node, depth)
     end

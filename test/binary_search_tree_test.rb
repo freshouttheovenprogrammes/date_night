@@ -51,18 +51,18 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 1, brave_toaster
     assert_equal 1, green_mile
   end
-  # 
-  # def test_that_nodes_can_be_inserted_multiple_levels_deep
-  #   tree = BinarySearchTree.new
-  #   tree.insert(78, "Pulp Fiction")
-  #   first_left_node = tree.insert(68, "The Green Mile")
-  #   first_right_node = tree.insert(88, "The Brave Little Toaster")
-  #   tree.insert(89, "The Brave Little Toaster2")
-  #   tree.insert(67, "The Brave Little Toaster3")
   #
-  #   assert_equal "The Brave Little Toaster2", first_right_node.right_node.name
-  #   assert_equal "The Brave Little Toaster3", first_left_node.left_node.name
-  # end
+  def test_that_nodes_can_be_inserted_multiple_levels_deep
+    tree = BinarySearchTree.new
+    tree.insert(78, "Pulp Fiction")
+    tree.insert(68, "The Green Mile")
+    tree.insert(88, "The Brave Little Toaster")
+    brave_toaster2 = tree.insert(89, "The Brave Little Toaster2")
+    brave_toaster3 = tree.insert(67, "The Brave Little Toaster3")
+
+    assert_equal 2, brave_toaster2
+    assert_equal 2, brave_toaster3
+  end
 
   def test_include_method_finds_node_score
     tree = BinarySearchTree.new

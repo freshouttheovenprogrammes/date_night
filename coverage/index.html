@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-12-06T13:08:58-07:00">2017-12-06T13:08:58-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-12-06T13:15:14-07:00">2017-12-06T13:15:14-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.45
+         6.47
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>73</td>
         <td>72</td>
         <td>1</td>
-        <td>4.5</td>
+        <td>5.3</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>9</td>
         <td>9</td>
         <td>0</td>
-        <td>13.2</td>
+        <td>16.0</td>
       </tr>
       
     </tbody>
@@ -124,8 +124,8 @@
           <code class="ruby">  def initialize</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="5">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="5">
+          <span class="hits">10</span>
           
           <code class="ruby">    @root = nil</code>
         </li>
@@ -148,26 +148,26 @@
           <code class="ruby">  def insert(score, title)</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="9">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="28" data-linenumber="9">
+          <span class="hits">28</span>
           
           <code class="ruby">    new_node = Node.new(score, title)</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="10">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="28" data-linenumber="10">
+          <span class="hits">28</span>
           
           <code class="ruby">    if @root.nil?</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="11">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="11">
+          <span class="hits">8</span>
           
           <code class="ruby">       @root = new_node</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="12">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="12">
+          <span class="hits">8</span>
           
           <code class="ruby">       return 0</code>
         </li>
@@ -178,14 +178,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="14">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="20" data-linenumber="14">
+          <span class="hits">20</span>
           
           <code class="ruby">      current_node = @root</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="15">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="20" data-linenumber="15">
+          <span class="hits">20</span>
           
           <code class="ruby">      post_insert(new_node, current_node)</code>
         </li>
@@ -214,20 +214,20 @@
           <code class="ruby">  def post_insert(new_node, current_node, depth = 0)</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="20">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="26" data-linenumber="20">
+          <span class="hits">26</span>
           
           <code class="ruby">    if new_node.score &gt; current_node.score</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="21">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="13" data-linenumber="21">
+          <span class="hits">13</span>
           
           <code class="ruby">      depth += 1</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="22">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="13" data-linenumber="22">
+          <span class="hits">13</span>
           
           <code class="ruby">      right_node_check(new_node, current_node, depth)</code>
         </li>
@@ -238,14 +238,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="24">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="13" data-linenumber="24">
+          <span class="hits">13</span>
           
           <code class="ruby">      depth += 1</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="25">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="13" data-linenumber="25">
+          <span class="hits">13</span>
           
           <code class="ruby">      left_node_check(new_node, current_node, depth)</code>
         </li>
@@ -274,14 +274,14 @@
           <code class="ruby">  def left_node_check(new_node, current_node, depth)</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="30">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="13" data-linenumber="30">
+          <span class="hits">13</span>
           
           <code class="ruby">    if current_node.left_node.nil?</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="31">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="31">
+          <span class="hits">9</span>
           
           <code class="ruby">       left_insert(new_node, current_node, depth)</code>
         </li>
@@ -292,14 +292,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="33">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="33">
+          <span class="hits">4</span>
           
           <code class="ruby">      updated_node = left_movement(new_node, current_node)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="34">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="34">
+          <span class="hits">4</span>
           
           <code class="ruby">      post_insert(new_node, updated_node, depth)</code>
         </li>
@@ -328,14 +328,14 @@
           <code class="ruby">  def right_node_check(new_node, current_node, depth)</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="39">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="13" data-linenumber="39">
+          <span class="hits">13</span>
           
           <code class="ruby">    if current_node.right_node.nil?</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="40">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="40">
+          <span class="hits">11</span>
           
           <code class="ruby">       right_insert(new_node, current_node, depth)</code>
         </li>
@@ -346,14 +346,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="42">
+          <span class="hits">2</span>
           
           <code class="ruby">       updated_node = right_movement(new_node, current_node)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="43">
+          <span class="hits">2</span>
           
           <code class="ruby">       post_insert(new_node, updated_node, depth)</code>
         </li>
@@ -382,8 +382,8 @@
           <code class="ruby">  def right_movement(new_node, current_node)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="48">
+          <span class="hits">2</span>
           
           <code class="ruby">    current_node.right_node</code>
         </li>
@@ -406,14 +406,14 @@
           <code class="ruby">  def right_insert(new_node, current_node, depth)</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="52">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="52">
+          <span class="hits">11</span>
           
           <code class="ruby">    current_node.right_node = new_node</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="53">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="53">
+          <span class="hits">11</span>
           
           <code class="ruby">    return depth</code>
         </li>
@@ -436,8 +436,8 @@
           <code class="ruby">  def left_movement(new_node, current_node)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="57">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="57">
+          <span class="hits">4</span>
           
           <code class="ruby">    current_node.left_node</code>
         </li>
@@ -460,14 +460,14 @@
           <code class="ruby">  def left_insert(new_node, current_node, depth)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="61">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="61">
+          <span class="hits">9</span>
           
           <code class="ruby">    current_node.left_node = new_node</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="62">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="62">
+          <span class="hits">9</span>
           
           <code class="ruby">    return depth</code>
         </li>
@@ -893,32 +893,32 @@
           <code class="ruby">  def initialize(score, title)</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="8">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="28" data-linenumber="8">
+          <span class="hits">28</span>
           
           <code class="ruby">    @title      = title</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="9">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="28" data-linenumber="9">
+          <span class="hits">28</span>
           
           <code class="ruby">    @score      = score</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="10">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="28" data-linenumber="10">
+          <span class="hits">28</span>
           
           <code class="ruby">    @left_node  = nil</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="11">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="28" data-linenumber="11">
+          <span class="hits">28</span>
           
           <code class="ruby">    @right_node = nil</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="12">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="28" data-linenumber="12">
+          <span class="hits">28</span>
           
           <code class="ruby">    @depth      = 0</code>
         </li>

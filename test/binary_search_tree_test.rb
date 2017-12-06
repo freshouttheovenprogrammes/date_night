@@ -41,18 +41,17 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 2, result5
   end
 
-  # def test_that_nodes_can_be_inserted_one_level_deep
-  #   tree = BinarySearchTree.new
-  #   pulp_fiction = tree.insert(78, "Pulp Fiction")
-  #   green_mile = tree.insert(68, "The Green Mile")
-  #   brave_toaster = tree.insert(88, "The Brave Little Toaster")
-  #   root = tree.root
-  #
-  #   assert_equal pulp_fiction, root
-  #   assert_equal brave_toaster, root.right_node
-  #   assert_equal green_mile, root.left_node
-  # end
-  #
+  def test_that_nodes_can_be_inserted_one_level_deep
+    tree = BinarySearchTree.new
+    pulp_fiction = tree.insert(78, "Pulp Fiction")
+    green_mile = tree.insert(68, "The Green Mile")
+    brave_toaster = tree.insert(88, "The Brave Little Toaster")
+
+    assert_equal 0, pulp_fiction
+    assert_equal 1, brave_toaster
+    assert_equal 1, green_mile
+  end
+  # 
   # def test_that_nodes_can_be_inserted_multiple_levels_deep
   #   tree = BinarySearchTree.new
   #   tree.insert(78, "Pulp Fiction")

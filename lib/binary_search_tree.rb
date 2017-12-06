@@ -110,5 +110,13 @@ class BinarySearchTree
     end
   end
 
+  def max_depth(current_node = @root, depth = 0)
+
+  end
+
+  def sort(movies = [])
+
+  end
+
 end
   # TODO make hash converter so like Hash.new(score, title)

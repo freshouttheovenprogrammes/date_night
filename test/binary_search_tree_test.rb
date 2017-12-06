@@ -73,6 +73,17 @@ class BinarySearchTreeTest < Minitest::Test
     refute tree.include?(44)
   end
 
+  def test_depth_of_returns_depth
+    tree = BinarySearchTree.new
+    tree.insert(78, "Pulp Fiction")
+    tree.insert(99, "Cool As Ice: The Vanilla Ice Movie")
+    tree.insert(44, "Bulb Friction")
+
+    assert_equal 0, tree.depth_of?(78)
+    assert_equal 1, tree.depth_of?(44)
+    assert_equal 1, tree.depth_of?(99)
+  end
+
   def test_max_score_found
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")

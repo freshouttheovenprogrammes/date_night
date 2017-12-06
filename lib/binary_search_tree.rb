@@ -45,7 +45,7 @@ class BinarySearchTree
   end
 
   def right_movement(new_node, current_node)
-    return current_node.right_node
+    current_node.right_node
   end
 
   def right_insert(new_node, current_node, depth)
@@ -54,7 +54,7 @@ class BinarySearchTree
   end
 
   def left_movement(new_node, current_node)
-    return current_node.left_node
+    current_node.left_node
   end
 
   def left_insert(new_node, current_node, depth)
@@ -73,6 +73,23 @@ class BinarySearchTree
     elsif current_node.score < score
       current_node = current_node.right_node
       include?(score, current_node)
+    end
+  end
+
+  def depth_of?(score, current_node = @root, depth = 0)
+    if current_node.nil?
+      false
+    elsif current_node.score == score
+      return depth
+    elsif current_node.score > score
+      require "pry"; binding.pry
+      current_node = current_node.right_node
+      depth += 1
+      depth_of?(score, current_node, depth)
+    elsif current_node.score < score
+      current_node = current_node.left_node
+      depth += 1
+      depth_of?(score, current_node, depth)
     end
   end
 

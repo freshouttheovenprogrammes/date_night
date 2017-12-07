@@ -9,7 +9,6 @@ class Node
     @score      = score
     @left_node  = nil
     @right_node = nil
-    @depth      = 0
   end
 
 end

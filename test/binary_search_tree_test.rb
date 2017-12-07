@@ -51,7 +51,7 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 1, brave_toaster
     assert_equal 1, green_mile
   end
-  #
+
   def test_that_nodes_can_be_inserted_multiple_levels_deep
     tree = BinarySearchTree.new
     tree.insert(78, "Pulp Fiction")
@@ -107,5 +107,30 @@ class BinarySearchTreeTest < Minitest::Test
     expected = {"Pulpous Fiction" => 1}
 
     assert_equal expected, tree.min
+  end
+  
+  def test_load_method
+    tree = BinarySearchTree.new
+
+    assert_equal 99, tree.load("movies.txt")
+  end
+
+  def test_array_is_getting_movies
+    tree = BinarySearchTree.new
+    tree.insert(50, "Pulp Fiction")
+    tree.insert(45, "Pulpish Fiction")
+    tree.insert(47, "Pulpish DOJ")
+    tree.insert(33, "Pulpish OJ")
+    tree.insert(99, "Gran Kilo")
+    tree.insert(68, "Blow")
+    tree.insert(1, "Johnny Deepend")
+
+    assert_equal [{"Johnny Deepend"=>1},
+                  {"Pulpish OJ"=>33},
+                  {"Pulpish Fiction"=>45},
+                  {"Pulpish DOJ"=>47},
+                  {"Pulp Fiction"=>50},
+                  {"Blow"=>68},
+                  {"Gran Kilo"=>99}], tree.sort
   end
 end

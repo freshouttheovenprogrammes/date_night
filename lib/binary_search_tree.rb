@@ -3,6 +3,7 @@ class BinarySearchTree
 
   def initialize
     @root = nil
+    @movies = []
   end
 
   def insert(score, title)
@@ -112,34 +113,22 @@ class BinarySearchTree
     end
   end
 
-  def movie_array_method(movies = [], current_node)
-    movies << {current_node.title => current_node.score}
-  end
-
   def sort(current_node = @root)
-    # require "pry"; binding.pry
-    if current_node.right_node.nil? && current_node.left_node.nil?
-      movie_array_method(current_node)
-    elsif current_node = current_node.right_node
-      until current_node.right_node.nil? && current_node.left_node.nil?
-      movie_array_method
-      sort
-      current_node = current_node.left_node
-      end
-      until current_node.right_node.nil? && current_node.left_node.nil?
-      movie_array_method
-      sort
-      end
-    else
-      return movie_array_method.movies
+    if current_node.left_node != nil
+      sort(current_node.left_node)
     end
+    @movies << {current_node.title => current_node.score}
+    if current_node.right_node != nil
+      sort(current_node.right_node)
+    end
+    return @movies
   end
 
   def load(file)
     File.readlines(file).each do |line|
-      insert(line.split(", ")[0].chomp, line.split(" ,")[1].chomp)
+      insert(line.split(", ")[0], line.split(", ")[1].chomp)
     end
-    File.readlines.count
+    File.readlines(file).count
   end
 
 end

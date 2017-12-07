@@ -1,3 +1,5 @@
+require_relative 'node'
+
 class BinarySearchTree
   attr_reader :root
 
@@ -78,7 +80,7 @@ class BinarySearchTree
     end
   end
 
-  def depth_of?(score, current_node = @root, depth = 0)
+  def depth_of(score, current_node = @root, depth = 0)
     if current_node.nil?
       false
     elsif current_node.score == score
@@ -86,11 +88,11 @@ class BinarySearchTree
     elsif current_node.score > score
       current_node = current_node.left_node
       depth += 1
-      depth_of?(score, current_node, depth)
+      depth_of(score, current_node, depth)
     elsif current_node.score < score
       current_node = current_node.right_node
       depth += 1
-      depth_of?(score, current_node, depth)
+      depth_of(score, current_node, depth)
     end
   end
 
@@ -125,7 +127,7 @@ class BinarySearchTree
 
   def load(file)
     File.readlines(file).each do |line|
-      insert(line.split(", ")[0], line.split(", ")[1].chomp)
+      insert(line.split(", ")[0].to_i, line.split(", ")[1].chomp)
     end
     File.readlines(file).count
   end

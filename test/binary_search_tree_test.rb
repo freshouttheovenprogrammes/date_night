@@ -82,9 +82,9 @@ class BinarySearchTreeTest < Minitest::Test
     tree.insert(99, "Cool As Ice: The Vanilla Ice Movie")
     tree.insert(44, "Bulb Friction")
 
-    assert_equal 0, tree.depth_of?(78)
-    assert_equal 1, tree.depth_of?(44)
-    assert_equal 1, tree.depth_of?(99)
+    assert_equal 0, tree.depth_of(78)
+    assert_equal 1, tree.depth_of(44)
+    assert_equal 1, tree.depth_of(99)
   end
 
   def test_max_score_found
@@ -111,11 +111,15 @@ class BinarySearchTreeTest < Minitest::Test
 
   def test_load_method
     tree = BinarySearchTree.new
+    tree.load("movies.txt")
 
-    assert_equal 99, tree.load("movies.txt")
+    assert_equal "Hannibal Buress: Animal Furnace", tree.root.title
+    assert_equal 71, tree.root.score
+    assert_equal "Hannibal Buress: Comedy Camisado", tree.root.right_node.title
+    assert_equal 80, tree.root.right_node.score
   end
 
-  def test_array_is_getting_movies
+  def test_sort_method_works
     tree = BinarySearchTree.new
     tree.insert(50, "Pulp Fiction")
     tree.insert(45, "Pulpish Fiction")
@@ -132,5 +136,16 @@ class BinarySearchTreeTest < Minitest::Test
                   {"Pulp Fiction"=>50},
                   {"Blow Up"=>68},
                   {"Gran Kilo"=>99}], tree.sort
+  end
+
+  def test_sort_method_works_after_load
+    tree = BinarySearchTree.new
+    tree.load("movies_fixture.txt")
+
+    assert_equal [{"Meet My Valentine"=>17},
+                  {"Experimenter"=>55},
+                  {"Hannibal Buress: Animal Furnace"=>71},
+                  {"French Dirty"=>75},
+                  {"Hannibal Buress: Comedy Camisado"=>80}], tree.sort
   end
 end

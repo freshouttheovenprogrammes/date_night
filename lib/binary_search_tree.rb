@@ -6,13 +6,15 @@ class BinarySearchTree
   end
 
   def insert(score, title)
-    new_node = Node.new(score, title)
+    Node.new(score, title)
     if @root.nil?
-       @root = new_node
+       @root = Node.new(score, title)
        return 0
+       # think about removing if/else and moving that action to post insert or
+       # other insertion?
     else
       current_node = @root
-      post_insert(new_node, current_node)
+      post_insert(Node.new(score, title), current_node)
     end
   end
 
@@ -110,13 +112,34 @@ class BinarySearchTree
     end
   end
 
-  def max_depth(current_node = @root, depth = 0)
-
+  def movie_array_method(movies = [], current_node)
+    movies << {current_node.title => current_node.score}
   end
 
-  def sort(movies = [])
+  def sort(current_node = @root)
+    # require "pry"; binding.pry
+    if current_node.right_node.nil? && current_node.left_node.nil?
+      movie_array_method(current_node)
+    elsif current_node = current_node.right_node
+      until current_node.right_node.nil? && current_node.left_node.nil?
+      movie_array_method
+      sort
+      current_node = current_node.left_node
+      end
+      until current_node.right_node.nil? && current_node.left_node.nil?
+      movie_array_method
+      sort
+      end
+    else
+      return movie_array_method.movies
+    end
+  end
 
+  def load(file)
+    File.readlines(file).each do |line|
+      insert(line.split(", ")[0].chomp, line.split(" ,")[1].chomp)
+    end
+    File.readlines.count
   end
 
 end
-  # TODO make hash converter so like Hash.new(score, title)

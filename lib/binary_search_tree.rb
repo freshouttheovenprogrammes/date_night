@@ -9,23 +9,25 @@ class BinarySearchTree
   end
 
   def insert(score, title)
-    depth = 0
-    Node.new(score, title)
     if @root.nil?
        @root = Node.new(score, title)
-       return depth
+       return @root.depth
     else
       current_node = @root
       post_insert(Node.new(score, title), current_node)
     end
   end
 
+  def depth_add(new_node)
+    new_node.depth += 1
+  end
+
   def post_insert(new_node, current_node, depth = 0)
     if new_node.score > current_node.score
-      depth += 1
+      depth_add(new_node)
       right_node_check(new_node, current_node, depth)
     else
-      depth += 1
+      depth_add(new_node)
       left_node_check(new_node, current_node, depth)
     end
   end
@@ -54,7 +56,7 @@ class BinarySearchTree
 
   def right_insert(new_node, current_node, depth)
     current_node.right_node = new_node
-    return depth
+    return new_node.depth
   end
 
   def left_movement(new_node, current_node)
@@ -63,7 +65,7 @@ class BinarySearchTree
 
   def left_insert(new_node, current_node, depth)
     current_node.left_node = new_node
-    return depth
+    return new_node.depth
   end
 
   def include?(score, current_node = @root)
@@ -98,7 +100,7 @@ class BinarySearchTree
 
   def max(current_node = @root)
     if current_node.right_node.nil?
-      {current_node.title => current_node.score}
+      hashify(current_node)
     else
       current_node = current_node.right_node
       max(current_node)
@@ -107,7 +109,7 @@ class BinarySearchTree
 
   def min(current_node = @root)
     if current_node.left_node.nil?
-      {current_node.title => current_node.score}
+      hashify(current_node)
     else
       current_node = current_node.left_node
       min(current_node)
@@ -118,7 +120,7 @@ class BinarySearchTree
     if current_node.left_node != nil
       sort(current_node.left_node)
     end
-    @movies << {current_node.title => current_node.score}
+    @movies << hashify(current_node)
     if current_node.right_node != nil
       sort(current_node.right_node)
     end
@@ -126,10 +128,15 @@ class BinarySearchTree
   end
 
   def load(file)
+    file = "./data/" + file
     File.readlines(file).each do |line|
       insert(line.split(", ")[0].to_i, line.split(", ")[1].chomp)
     end
     File.readlines(file).count
+  end
+
+  def hashify(current_node)
+    "#{current_node.score} => #{current_node.title}"
   end
 
 end

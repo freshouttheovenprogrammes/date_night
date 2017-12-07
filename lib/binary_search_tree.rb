@@ -7,12 +7,11 @@ class BinarySearchTree
   end
 
   def insert(score, title)
+    depth = 0
     Node.new(score, title)
     if @root.nil?
        @root = Node.new(score, title)
-       return 0
-       # think about removing if/else and moving that action to post insert or
-       # other insertion?
+       return depth
     else
       current_node = @root
       post_insert(Node.new(score, title), current_node)

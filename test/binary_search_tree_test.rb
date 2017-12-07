@@ -108,7 +108,7 @@ class BinarySearchTreeTest < Minitest::Test
 
     assert_equal expected, tree.min
   end
-  
+
   def test_load_method
     tree = BinarySearchTree.new
 
@@ -122,7 +122,7 @@ class BinarySearchTreeTest < Minitest::Test
     tree.insert(47, "Pulpish DOJ")
     tree.insert(33, "Pulpish OJ")
     tree.insert(99, "Gran Kilo")
-    tree.insert(68, "Blow")
+    tree.insert(68, "Blow Up")
     tree.insert(1, "Johnny Deepend")
 
     assert_equal [{"Johnny Deepend"=>1},
@@ -130,7 +130,7 @@ class BinarySearchTreeTest < Minitest::Test
                   {"Pulpish Fiction"=>45},
                   {"Pulpish DOJ"=>47},
                   {"Pulp Fiction"=>50},
-                  {"Blow"=>68},
+                  {"Blow Up"=>68},
                   {"Gran Kilo"=>99}], tree.sort
   end
 end

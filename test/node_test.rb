@@ -11,6 +11,7 @@ class NodeTest < Minitest::Test
 
   def test_it_can_retrieve_title
     node = Node.new(22, "titlestuff")
+
     assert_equal "titlestuff", node.title
     assert_equal 22, node.score
   end
@@ -33,19 +34,13 @@ class NodeTest < Minitest::Test
     node2 = Node.new(100_000, "Cheeseburger_In_Paradise")
     node3 = Node.new(999_999_999, "Cheeseburger_In_My_Mouth")
 
-    assert_equal "Cheeseburger", node1.title
-    assert_equal 66, node1.score
-    assert_nil node1.left_next_node
-    assert_nil node1.right_next_node
+    assert_nil node1.left_node
+    assert_nil node1.right_node
 
-    assert_equal "Cheeseburger_In_Paradise", node2.title
-    assert_equal 100_000, node2.score
-    assert_nil node2.left_next_node
-    assert_nil node2.right_next_node
+    assert_nil node2.left_node
+    assert_nil node2.right_node
 
-    assert_equal "Cheeseburger_In_My_Mouth", node3.title
-    assert_equal 999_999_999, node3.score
-    assert_nil node3.left_next_node
-    assert_nil node3.right_next_node
+    assert_nil node3.left_node
+    assert_nil node3.right_node
   end
 end
